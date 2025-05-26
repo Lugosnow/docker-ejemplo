@@ -26,3 +26,19 @@ jobs:
           context: .
           push: true
           tags: jclugo/app-ejemplo:latest
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+
+      - name: Run unit tests
+        run: |
+          pytest test-suma.py
+          pytest test-resta.py
+          pytest test-multiplicar.py
