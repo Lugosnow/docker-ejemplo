@@ -1,4 +1,4 @@
-from app.py import restar
+from app import restar
 def test_restar():
     assert restar(5, 3) == 2
     assert restar(0, 0) == 0
