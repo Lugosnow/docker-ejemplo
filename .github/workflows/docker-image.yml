@@ -25,4 +25,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: Lugosnow/app-ejemplo:latest
+          tags: jclugo/app-ejemplo:latest
