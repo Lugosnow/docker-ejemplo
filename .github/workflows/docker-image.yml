@@ -46,7 +46,8 @@ jobs:
 
       - name: Show test summary metrics
         run: |
-            PASSED_COUNT=$(grep -o 'PASSED' result.log | wc -l)
-            FAILED_COUNT=$(grep -o 'FAILED' result.log | wc -l)
+            PASSED_COUNT=$(grep -o '[0-9]\+ passed' result.log | awk '{sum+=$1} END {print sum}')
+            FAILED_COUNT=$(grep -o '[0-9]\+ failed' result.log | awk '{sum+=$1} END {print sum}')
             echo "✅ Tests passed: $PASSED_COUNT"
             echo "❌ Tests failed: $FAILED_COUNT"
+
