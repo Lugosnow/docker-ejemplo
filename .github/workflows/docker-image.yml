@@ -39,6 +39,6 @@ jobs:
 
       - name: Run unit tests
         run: |
-          pytest test-suma.py
-          pytest test-resta.py
+          pytest test-sumar.py
+          pytest test-restar.py
           pytest test-multiplicar.py
