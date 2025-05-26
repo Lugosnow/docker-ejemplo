@@ -39,14 +39,14 @@ jobs:
 
       - name: Run unit tests and save results
         run: |
-          pytest test-sumar.py > result.log || true
-          pytest test-restar.py >> result.log || true
-          pytest test-multiplicar.py >> result.log || true
-          cat result.log
+            PYTHONPATH=. pytest test-sumar.py > result.log || true
+            PYTHONPATH=. pytest test-restar.py >> result.log || true
+            PYTHONPATH=. pytest test-multiplicar.py >> result.log || true
+            cat result.log
 
       - name: Show test summary metrics
         run: |
-          PASSED_COUNT=$(grep -o 'PASSED' result.log | wc -l)
-          FAILED_COUNT=$(grep -o 'FAILED' result.log | wc -l)
-          echo "✅ Tests passed: $PASSED_COUNT"
-          echo "❌ Tests failed: $FAILED_COUNT"
+            PASSED_COUNT=$(grep -o 'PASSED' result.log | wc -l)
+            FAILED_COUNT=$(grep -o 'FAILED' result.log | wc -l)
+            echo "✅ Tests passed: $PASSED_COUNT"
+            echo "❌ Tests failed: $FAILED_COUNT"
